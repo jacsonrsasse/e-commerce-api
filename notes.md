@@ -217,3 +217,12 @@
 
 <br>
 <hr>
+
+### Erro do servidor: "Error: Cannot find module '@shared/errors/Exception'"
+
+-   Esse erro é causado ao utilizar os paths do tsconfig, mas é simples de resolver.
+
+1. Instalar a dependência do tsconfig-paths, comando abaixo:
+    > npm i -D tsconfig-paths
+2. Acrescentar o trecho `-r tsconfig-paths/register` ao script `dev` ficando assim:
+    > "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts"
