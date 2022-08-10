@@ -11,6 +11,8 @@
     "author": "Jacson R. Sasse",
     "license": "ISC",
     "devDependencies": {
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
         "@types/node": "^18.0.3",
         "@typescript-eslint/eslint-plugin": "^5.30.6",
         "@typescript-eslint/parser": "^5.30.6",
