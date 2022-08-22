@@ -226,3 +226,23 @@
     > npm i -D tsconfig-paths
 2. Acrescentar o trecho `-r tsconfig-paths/register` ao script `dev` ficando assim:
     > "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts"
+
+<br>
+<hr>
+
+### TypeORM
+
+1. Precisa ser instalado os recursos para o uso do `TypeORM`, facilitando a manipulação do banco de dados.
+
+-   Rodar o comando:
+    > npm i typeorm reflect-metadata pg
+
+#### Detalhamento
+
+-   `typeorm`: é o mapeamento do objeto relacionamento que será utilizado, trazendo várias funcionalidades e facilidades para o manuseio dos dados.
+-   `reflect-metadata`: pacote exigido pelo TypeORM quando utilizado com Typescript
+-   `pg`: biblioteca para conexão em banco PostgreSql
+
+<br>
+
+2. Ao finalizar, precisa ser configurado no arquivo `server.ts` a importação do metadata. Também é necessário criar na raiz do projeto um arquivo chamado `ormconfig.json`, ele conterá os dados de configuração do TypeORM no projeto.

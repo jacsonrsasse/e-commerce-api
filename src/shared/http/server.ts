@@ -1,7 +1,13 @@
+// Esse import precisa ser o primeiro de todos mesmo
+import 'reflect-metadata';
+
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
 import { Exception } from '@shared/errors/Exception';
+
+// Precisa desta importação para iniciar o TypeORM
+import '@shared/typeorm';
 
 // Instância principal do express
 const app = express();
@@ -34,6 +40,6 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
     });
 });
 
-app.listen(3333, () => {
+app.listen(3000, () => {
     console.log('foi');
 });
