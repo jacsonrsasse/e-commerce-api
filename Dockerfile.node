@@ -1,0 +1,17 @@
+# Imagem do NodeJS
+FROM node:16-slim
+
+# Atualiza o ambiente linux
+RUN apt update && apt install -y wget netcat git
+
+# Um bash para garantir que o banco de dados subiu e está pronto antes de criar o servidor node
+RUN wget -q -O /usr/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/v2.2.3/wait-for && \
+    chmod +x /usr/bin/wait-for
+
+# Garante que o usuário seja o NODE, que por padrão possui o ID 1000 do usuário no container
+# o que coincide com o usuário do linux, assim não tenho problema de permissão de edição de arquivos
+USER node
+
+WORKDIR /home/node/app
+
+CMD ["/home/node/app/start.sh"]

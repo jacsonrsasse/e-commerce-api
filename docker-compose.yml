@@ -3,14 +3,27 @@ version: '3.4'
 
 # Serviços
 services:
+    node:
+        build:
+            context: .
+            dockerfile: Dockerfile.node
+        command: wait-for db:5432 -t 40 -- ./start.sh
+        container_name: node_ecommerce_api
+        ports:
+            - 3000:3000
+        volumes:
+            - .:/home/node/app
+        depends_on:
+            - db
+
     db:
-        image: postgres:13-alpine
+        image: postgres:9.4
         container_name: postgres
         restart: always
         environment:
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-            POSTGRES_DB: ecommerceapi
+            POSTGRES_DB: ${POSTGRES_DB}
         volumes:
             - .:/db/var/lib/postgresql/data
         ports:
@@ -24,4 +37,4 @@ services:
             PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
             PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
         ports:
-            - 5050:80
+            - 9000:80
