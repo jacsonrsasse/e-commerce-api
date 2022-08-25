@@ -246,3 +246,17 @@
 <br>
 
 2. Ao finalizar, precisa ser configurado no arquivo `server.ts` a importação do metadata. Também é necessário criar na raiz do projeto um arquivo chamado `ormconfig.json`, ele conterá os dados de configuração do TypeORM no projeto.
+
+<br>
+<hr>
+
+### Migrações
+
+- Para criar novas migrações, usar o comando `npm run typeorm migration:create -- -n NomeDesejado`
+
+  - Esse arquivos será criado em `src » shared » typeorm » migrations`
+
+<br>
+
+- Para rodar a migração no banco, usar o comando `npm run typeorm migration:run`
+- Para rodar um rollback, usar o comando `npm run typeorm migration:revert`
