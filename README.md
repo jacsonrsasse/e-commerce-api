@@ -38,7 +38,6 @@ Esse projeto foi desenvolvido em no ambiente WSL:Ubuntu integrado ao Windows, po
 <br>
 
 ## Detalhes sobre o Banco de Dados
-<br>
 
 ### Habilitar a extensão UUID no Banco
 <br>
