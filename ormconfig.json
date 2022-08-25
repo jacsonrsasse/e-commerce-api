@@ -4,5 +4,9 @@
     "port": 5432,
     "username": "postgres",
     "password": "postgres",
-    "database": "ecommerceapi"
+    "database": "ecommerceapi",
+    "migrations": [ "./src/shared/typeorm/migrations/*.ts" ],
+    "cli": {
+        "migrationDir": "./src/shared/typeorm/migrations"
+    }
 }
