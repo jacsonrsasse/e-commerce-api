@@ -12,7 +12,7 @@ interface IRequestCreateProduct {
 /**
  * Service to create products
  */
-export class CreateProductService {
+export default class CreateProductService {
 
     /**
      * Default method
