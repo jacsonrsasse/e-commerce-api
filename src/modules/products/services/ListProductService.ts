@@ -1,12 +1,11 @@
-import { getCustomRepository } from "typeorm";
-import Product from "../typeorm/entities/Product";
-import { ProductRepository } from "../typeorm/repositories/ProductsRepository";
+import { getCustomRepository } from 'typeorm';
+import Product from '../typeorm/entities/Product';
+import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
 
 /**
  * Service to list all products
  */
 export default class ListProductService {
-
     /**
      * Default method
      * @returns A list of products
@@ -16,5 +15,4 @@ export default class ListProductService {
         const products = await productRepository.find();
         return products;
     }
-
 }
