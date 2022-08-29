@@ -12,7 +12,7 @@ interface IRequestDeleteProduct {
 export default class DeleteProductService {
 
     /**
-     * Deafult method
+     * Default method
      */
     public async execute({ id }: IRequestDeleteProduct): Promise<void> {
         const productRepository = getCustomRepository(ProductRepository);
