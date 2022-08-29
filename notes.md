@@ -277,3 +277,32 @@ Instale o `celebrate` com o comando:
 E as tipagens:
 
 > npm i -D @types/joi
+
+#### Segments
+
+Permite definir qual o segmento que queremos validar, seja o corpo, cabeçalho, cookies, etc.
+
+-   Utilizado nos arquivos de rotas
+
+#### Joi
+
+Permite validar de forma bem aprofundada cada parâmetro que a rota receberá, definindo suas tipagens, obrigatoriedades e validações adicionais.
+
+-   Utilizado nos arquivos de rotas
+
+#### Errors
+
+É a função que exibe os erros de validação, em caso de uma rota receber uma parâmetro inválido. Neste projeto, essa função está sendo utilizada no arquivo `server.ts`, pois é nele que está todo o tratamento de erros.
+
+<br>
+<hr>
+
+### Criptografia de Senhas
+
+Para a criptografia de senhas, podemos usar a bibioteca `bcrypt` que é bem comum e fácil de utilizar.
+
+> npm i bcryptjs
+
+E seus tipos:
+
+> npm i -D @types/bcryptjs
