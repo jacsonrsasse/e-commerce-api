@@ -11,7 +11,7 @@ interface IRequestUpdateProduct {
 }
 
 /**
- * Service to list only one product
+ * Service to update one product
  */
 export default class UpdateProductService {
 
