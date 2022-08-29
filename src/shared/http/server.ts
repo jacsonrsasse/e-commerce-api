@@ -1,6 +1,7 @@
 // Esse import precisa ser o primeiro de todos mesmo
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
+// Este import aqui garante que o tratamento de erros implementando a class Exception irá funcionar corretamente
 import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
@@ -8,6 +9,8 @@ import { Exception } from '@shared/errors/Exception';
 
 // Precisa desta importação para iniciar o TypeORM
 import '@shared/typeorm';
+
+import { errors } from 'celebrate';
 
 // Instância principal do express
 const app = express();
@@ -20,6 +23,10 @@ app.use(express.json());
 
 // Define as rotas da aplicação
 app.use(routes);
+
+// Uso dos errors do celebrate, se for gerado algum erro nas validações do celebrate,
+// esses dados serão jogados no Express, caindo na validação de erros implementada abaixo
+app.use(errors());
 
 // Middleware para tratamento dos erros da aplicação, de forma que não precisamos
 // tratar individualmente dentro dos controllers

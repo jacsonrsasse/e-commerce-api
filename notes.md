@@ -252,11 +252,28 @@
 
 ### Migrações
 
-- Para criar novas migrações, usar o comando `npm run typeorm migration:create -- -n NomeDesejado`
+-   Para criar novas migrações, usar o comando `npm run typeorm migration:create -- -n NomeDesejado`
 
-  - Esse arquivos será criado em `src » shared » typeorm » migrations`
+    -   Esse arquivos será criado em `src » shared » typeorm » migrations`
 
 <br>
 
-- Para rodar a migração no banco, usar o comando `npm run typeorm migration:run`
-- Para rodar um rollback, usar o comando `npm run typeorm migration:revert`
+-   Para rodar a migração no banco, usar o comando `npm run typeorm migration:run`
+-   Para rodar um rollback, usar o comando `npm run typeorm migration:revert`
+
+<br>
+<hr>
+
+### Celebrate
+
+É o middleware para o Express para validação dos parâmetros recebidos nas requisições já nas rotas, antes de chegar no backend. Essa biblioteca usa implementações do pacote Joi, com ajustes para funcionar em parceria com o Express.
+
+É possível validar dados vindos no corpo, no cabeçalho e até cookies.
+
+Instale o `celebrate` com o comando:
+
+> npm i celebrate
+
+E as tipagens:
+
+> npm i -D @types/joi
