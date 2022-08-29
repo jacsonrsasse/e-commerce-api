@@ -299,10 +299,43 @@ Permite validar de forma bem aprofundada cada parâmetro que a rota receberá, d
 
 ### Criptografia de Senhas
 
-Para a criptografia de senhas, podemos usar a bibioteca `bcrypt` que é bem comum e fácil de utilizar.
+Para a criptografia de senhas, podemos usar a bibioteca `bcryptjs` que é bem comum e fácil de utilizar.
 
 > npm i bcryptjs
 
 E seus tipos:
 
 > npm i -D @types/bcryptjs
+
+#### Criação da Sessão
+
+Verificando no serviço de criação da sessão, receberemos o e-mail e a senha do usuário e para saber se existe combinação possível, executamos o passo-a-passo:
+
+1.  Identificar o usuário pelo E-mail
+
+    -   Retornando erro caso não encontrado
+
+2.  Usando o método `compare` da biblioteca podemos verificar se a senha sem criptografia recebida, é equivalente à que está criptografada.
+
+    -   Retornando erro caso não encontrado
+
+3.  Além disso, será adicionado ao retorno o token de autenticação daquele usuário, para que ele consiga manter sua comunicação com a API sem a necessidade de logins constantes.
+
+#### Token com JWT
+
+Instalar a biblioteca jsonwebtoken
+
+> npm i jsonwebtoken
+
+Instalar os tipos:
+
+> npm i -D @types/jsonwebtoken
+
+Utilizando o método `sign` desta biblioteca, conseguimos criar o token facilmente. Os parâmetros esperados são:
+
+1. Payload
+2. Secret
+3. Configurações:
+    - `subject`: pode ser usado para retornar dados do usuário, como o ID
+        - Nunca retornar dados sensíveis
+    - `expiresIn`: tempo de validade do token

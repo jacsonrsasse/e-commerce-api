@@ -1,5 +1,6 @@
 import { Exception } from '@shared/errors/Exception';
 import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 import { getCustomRepository } from 'typeorm';
 import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
@@ -11,7 +12,7 @@ interface IRequestCreateSession {
 
 interface IResponseCreateSession {
     user: User;
-    // token: string;
+    token: string;
 }
 
 /**
@@ -34,8 +35,15 @@ export default class CreateSessionsService {
             throw new Exception('Incorrect E-mail/Password combination!', 401);
         }
 
+        // token (payload, secret, configurações)
+        const token = sign({}, '120931289alop1asf9n123noi12301289nsaD', {
+            subject: user.id,
+            expiresIn: '1d',
+        });
+
         return {
             user,
+            token,
         };
     }
 }
