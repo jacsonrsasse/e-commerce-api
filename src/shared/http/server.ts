@@ -1,6 +1,7 @@
 // Esse import precisa ser o primeiro de todos mesmo
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
 import { Exception } from '@shared/errors/Exception';
