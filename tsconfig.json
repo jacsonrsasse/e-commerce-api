@@ -10,6 +10,7 @@
             "@modules/*": ["src/modules/*"],
             "@shared/*": ["src/shared/*"]
         },
+        "typeRoots": ["@types", "./node_modules/@types"],
         "resolveJsonModule": true,
         "allowJs": true,
         "outDir": "build",
@@ -25,3 +26,4 @@
         "emitDecoratorMetadata": true
     }
 }
+
