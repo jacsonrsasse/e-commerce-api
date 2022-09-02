@@ -8,7 +8,7 @@
   ormconfig.json
   dist
 
-  uploads/*
+uploads/*
   !uploads/.gitkeep
 
 # Logs
@@ -132,7 +132,7 @@ dist
 # TernJS port file
 .tern-port
 
-# Stores VSCode versions used for testing VSCode extensions
+# Stores VSCode versions used for testin VSCode extensions
 .vscode-test
 
 # yarn v2
@@ -141,3 +141,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
