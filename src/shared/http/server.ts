@@ -12,6 +12,8 @@ import '@shared/typeorm';
 
 import { errors } from 'celebrate';
 
+import uploadConfig from '@config/upload';
+
 // Instância principal do express
 const app = express();
 
@@ -20,6 +22,9 @@ app.use(cors());
 
 // Para definir que a API trabalhará com o padrão JSON
 app.use(express.json());
+
+// Rota fixa para a aplicação front-end acessar as imagens de forma mais simples
+app.use('/files', express.static(uploadConfig.directory));
 
 // Define as rotas da aplicação
 app.use(routes);
