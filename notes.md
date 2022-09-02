@@ -339,3 +339,18 @@ Utilizando o método `sign` desta biblioteca, conseguimos criar o token facilmen
     - `subject`: pode ser usado para retornar dados do usuário, como o ID
         - Nunca retornar dados sensíveis
     - `expiresIn`: tempo de validade do token
+
+<br>
+<hr>
+
+### Upload de imagem do avatar
+
+Usaremos a biblioteca do `Multer` para fazer isso. Instalação:
+
+> npm i multer
+
+E os tipos:
+
+> npm i -D @types/multer
+
+Com isso feito, criar um arquivo de configuração para o Multer, determinando o diretório que as imagens serão salvas.
