@@ -3,6 +3,7 @@ import { hash } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
 import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
+import HashPasswordService from './HashPasswordService';
 
 interface IRequestCreateUser {
     name: string;
@@ -25,7 +26,8 @@ export default class CreateUserService {
             throw new Exception('E-mail address already used!');
         }
 
-        const hashedPassword = await hash(password, 8);
+        const hashPasswordService = new HashPasswordService();
+        const hashedPassword = await hashPasswordService.execute({ passwordToHash: password });
 
         const user = usersRepository.create({
             name,
