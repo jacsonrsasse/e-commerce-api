@@ -354,3 +354,10 @@ E os tipos:
 > npm i -D @types/multer
 
 Com isso feito, criar um arquivo de configuração para o Multer, determinando o diretório que as imagens serão salvas.
+
+<br>
+<hr>
+
+### Trabalhando com Datas
+
+Para essa tarefa, será utilizada a biblioteca `date-fns`

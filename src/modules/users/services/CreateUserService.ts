@@ -1,5 +1,4 @@
 import { Exception } from '@shared/errors/Exception';
-import { hash } from 'bcryptjs';
 import { getCustomRepository } from 'typeorm';
 import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
