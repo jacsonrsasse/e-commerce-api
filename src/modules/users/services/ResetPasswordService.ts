@@ -42,5 +42,7 @@ export default class ResetPasswordService {
 
         const hashPasswordService = new HashPasswordService();
         user.password = await hashPasswordService.execute({ passwordToHash: password });
+
+        await usersRepository.save(user);
     }
 }
