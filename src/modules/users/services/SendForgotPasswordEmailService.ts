@@ -1,5 +1,5 @@
 import { Exception } from '@shared/errors/Exception';
-import { getCustomRepository, useContainer } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
 import UserTokensRepository from '../typeorm/repositories/UserTokensRepository';
 import EtherealMail from '@config/email/EtherealMail';
