@@ -388,3 +388,14 @@ O arquivo de configuração foi criado na pasta `config/email`. O arquivo de con
     - Aqui, a propriedade `from` recebe um e-mail fake para os testes, mas em um ambiente de produção, esse deve ser o e-mail da empresa/loja/entidade que é responsável pelo e-commerce.
 
 Esse objeto então é utilizado pelo service `SendForgotPasswordEmailService`.
+
+#### Template para o E-mail
+
+Para criação do template e deixar o e-mail com uma aparência mais correta, será utilizado o `handlebars`, uma biblioteca que permite a criação de HTML com variáveis, muito semelhante ao `mustache`.
+
+Começamos com a instalação
+
+> npm i handlebars
+
+<p>A classe `HandlebarsMailTemplate` dentro da pasta de `config/email` é a responsável pela configuração e parse do template para o e-mail. É um processamento muito simples, ela compila o template e seta as variáveis nela. Com isso foram criadas duas interfaces, separadas no arquivo `interfaces.ts` para reutilização também na classe `EtherealMail`.</p>
+<p>A classe `EtherealMail` também sofrerá algumas alterações para melhor funcionamento. Todos os parâmetros de entrada no seu método agora condizem com as necessidades do `nodemailer`, de forma que a classe fica totalmente livre para ser utilizada em qualquer parte do software.</p>
