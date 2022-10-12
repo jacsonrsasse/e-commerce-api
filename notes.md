@@ -401,4 +401,6 @@ A classe `HandlebarsMailTemplate` dentro da pasta de `config/email` é a respons
 
 A classe `EtherealMail` também sofrerá algumas alterações para melhor funcionamento. Todos os parâmetros de entrada no seu método agora condizem com as necessidades do `nodemailer`, de forma que a classe fica totalmente livre para ser utilizada em qualquer parte do software.
 
-Agora no serviço de envio do e-mail, os dados enviados para o arquivo de configuração do ethereal foram ajustados para respeitar as interfaces e argumentos que a função pede.
+A interface que antes recebia uma string como template, apenas para teste, deve na verdade receber um arquivo. Assim na classe `HandlebarsMailTemplate`, utilizando o pacote `fs`, o conteúdo do arquivo deverá ser lido e enviado para o `handlebars`.
+
+Agora no serviço de envio do e-mail, os dados enviados para o arquivo de configuração do ethereal foram ajustados para respeitar as interfaces e argumentos que a função pede. O arquivo de template será pego utilizando o pacote `path`, para identificação do caminho relativo do template.
