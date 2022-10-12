@@ -397,5 +397,8 @@ Começamos com a instalação
 
 > npm i handlebars
 
-<p>A classe `HandlebarsMailTemplate` dentro da pasta de `config/email` é a responsável pela configuração e parse do template para o e-mail. É um processamento muito simples, ela compila o template e seta as variáveis nela. Com isso foram criadas duas interfaces, separadas no arquivo `interfaces.ts` para reutilização também na classe `EtherealMail`.</p>
-<p>A classe `EtherealMail` também sofrerá algumas alterações para melhor funcionamento. Todos os parâmetros de entrada no seu método agora condizem com as necessidades do `nodemailer`, de forma que a classe fica totalmente livre para ser utilizada em qualquer parte do software.</p>
+A classe `HandlebarsMailTemplate` dentro da pasta de `config/email` é a responsável pela configuração e parse do template para o e-mail. É um processamento muito simples, ela compila o template e seta as variáveis nela. Com isso foram criadas duas interfaces, separadas no arquivo `interfaces.ts` para reutilização também na classe `EtherealMail`.
+
+A classe `EtherealMail` também sofrerá algumas alterações para melhor funcionamento. Todos os parâmetros de entrada no seu método agora condizem com as necessidades do `nodemailer`, de forma que a classe fica totalmente livre para ser utilizada em qualquer parte do software.
+
+Agora no serviço de envio do e-mail, os dados enviados para o arquivo de configuração do ethereal foram ajustados para respeitar as interfaces e argumentos que a função pede.
