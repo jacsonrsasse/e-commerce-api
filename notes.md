@@ -361,3 +361,30 @@ Com isso feito, criar um arquivo de configuração para o Multer, determinando o
 ### Trabalhando com Datas
 
 Para essa tarefa, será utilizada a biblioteca `date-fns`
+
+<br>
+<hr>
+
+### Envio de E-mail Fake para Ambiente de Desenvolvimento
+
+O envio dessa funcionalidade será utilizando o `nodemailer`, instalar via comando:
+
+> npm i nodemailer
+
+Instalar a definição de tipos:
+
+> npm i -D @types/nodemailer
+
+O receptor das mensagens fake de testes será o [Ethereal](https://ethereal.email/)
+
+#### Configuração Nodemailer
+
+O arquivo de configuração foi criado na pasta `config/email`. O arquivo de configuração possui uma classe que fará o envio do e-mail de testes utilizando o `nodemailer`.
+
+1. Precisamos importar o nodemailer
+2. Utilizando o método `createTestAccount` criasse uma conta fake
+3. Utilizando o método `createTransport`, criamos o transportador que fará o envio do e-mail. Esse método recebe um objeto com as configurações necessárias.
+4. Após isso, enviamos o e-mail propriamente dito.
+    - Aqui, a propriedade `from` recebe um e-mail fake para os testes, mas em um ambiente de produção, esse deve ser o e-mail da empresa/loja/entidade que é responsável pelo e-commerce.
+
+Esse objeto então é utilizado pelo service `SendForgotPasswordEmailService`.
