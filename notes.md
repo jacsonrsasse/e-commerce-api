@@ -404,3 +404,38 @@ A classe `EtherealMail` também sofrerá algumas alterações para melhor funcio
 A interface que antes recebia uma string como template, apenas para teste, deve na verdade receber um arquivo. Assim na classe `HandlebarsMailTemplate`, utilizando o pacote `fs`, o conteúdo do arquivo deverá ser lido e enviado para o `handlebars`.
 
 Agora no serviço de envio do e-mail, os dados enviados para o arquivo de configuração do ethereal foram ajustados para respeitar as interfaces e argumentos que a função pede. O arquivo de template será pego utilizando o pacote `path`, para identificação do caminho relativo do template.
+
+<br/>
+<hr>
+
+### Profile Management
+
+Para a gestão do perfil do usuário, foram criados os serviço `ShowProfileService` e `UpdateProfileService`, bem como um controller para gerenciar o uso destes serviços, e um arquivo de rotas.
+
+Esse arquivo de rotas tem algumas peculiaridades. Por exemplo, a implementação do middleware diretamente no objeto de rotas, desta forma ele é aplicado a todas as rotas definidas neste objeto. Também a rota de `put` tem algumas validações a mais para os parâmetros de senha que podem (ou não) serem enviados.
+
+```
+profileRouter.put(
+    '/',
+    celebrate({
+        [Segments.BODY]: {
+            name: Joi.string().required(),
+            email: Joi.string().email().required(),
+            old_password: Joi.string(),
+            password: Joi.string().optional(),
+            password_confirmation: Joi.string().valid(Joi.ref('password')).when('password', {
+                is: Joi.exist(),
+                then: Joi.required(),
+            }),
+        },
+    }),
+    controller.update,
+);
+```
+
+1. O parâmetro `old_password` é simples, apenas definido como string;
+2. O parâmetro `password` não pode ser obrigatório, então para isso é utilizado o `optional()`;
+3. O parâmetro `password_confirmation` é a confirmação do `password`, o que garante que o usuário informou a senha corretamente. Esse parâmetro já teve existência na rota de redefinição da senha, mas aqui ele possui um pouco de lógica a mais.
+    - Igual na rota de redefinição, aqui ele utiliza o `valid` que faz referência à outro campo já definido, neste caso, o campo `password`;
+    - Utiliza o modificador `when`, que verifica outro campo e aplica alguma lógica sobre ele. Aqui, é verificado o campo `password`, com o `is: Joi.exist()` que verifica se esse parâmetro veio do front-end, e se veio, aplica o `then: Joi.required()`, ou seja, torna o parâmetro `password_confirmation` obrigatório quando o parâmetro `password` é informado.
+        - Essa validação é necessária porque como explicado, naturalmente o `password` não é obrigatório, porém quando essa informação vier, ela deve vir com a sua confirmação.
