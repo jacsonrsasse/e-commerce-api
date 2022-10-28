@@ -19,7 +19,7 @@ services:
     db:
         image: postgres:9.4
         container_name: postgres
-        restart: always
+        #restart: always
         environment:
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -32,9 +32,10 @@ services:
     pgadmin:
         image: dpage/pgadmin4
         container_name: pgadmin
-        restart: always
+        #restart: always
         environment:
             PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
             PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
         ports:
             - 9000:80
+
