@@ -2,6 +2,6 @@
 
 npm install
 
-tail -f /dev/null #trava o container
+tail -f /dev/null #trava o container, em ambiente linux
 
 #npm start
